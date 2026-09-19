@@ -761,6 +761,169 @@ section {
   font-size: 1.3rem;
 }
 
+.hackathon-card {
+  display: grid;
+  grid-template-columns: 1fr 0.92fr;
+  gap: 34px;
+  align-items: stretch;
+  padding: clamp(24px, 5vw, 54px);
+  border: 1px solid rgba(34, 211, 238, 0.22);
+  border-radius: 28px;
+  background:
+    linear-gradient(135deg, rgba(124, 58, 237, 0.18), rgba(34, 211, 238, 0.08) 46%, rgba(15, 23, 42, 0.82)),
+    var(--panel);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.hackathon-copy h2 {
+  margin: 20px 0 4px;
+  font-size: clamp(2.5rem, 5vw, 4.7rem);
+  letter-spacing: -0.07em;
+  line-height: 0.95;
+}
+
+.hackathon-copy > p:not(.hackathon-subtitle) {
+  max-width: 600px;
+  margin: 22px 0 0;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.hackathon-subtitle {
+  margin: 0;
+  color: var(--secondary);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.hackathon-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 25px;
+}
+
+.hackathon-stack span {
+  padding: 0.5rem 0.72rem;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  color: #dbeafe;
+  background: rgba(255,255,255,.06);
+  font-size: 0.78rem;
+}
+
+.hackathon-copy .actions {
+  align-items: center;
+  margin-top: 30px;
+}
+
+.hackathon-note {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.hackathon-preview {
+  align-self: center;
+  padding: 20px;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 21px;
+  background: rgba(5, 11, 24, 0.72);
+  box-shadow: 0 24px 55px rgba(2, 6, 23, 0.38);
+  transform: rotate(1.5deg);
+}
+
+.preview-topbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid rgba(255,255,255,.09);
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.preview-topbar span:last-child {
+  margin-left: auto;
+}
+
+.preview-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--primary);
+}
+
+.preview-dot:nth-child(2) { background: var(--secondary); }
+.preview-dot:nth-child(3) { background: var(--success); }
+
+.preview-heading {
+  display: grid;
+  gap: 9px;
+  padding: 30px 5px 25px;
+}
+
+.preview-heading small {
+  color: var(--secondary);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+}
+
+.preview-heading strong {
+  max-width: 320px;
+  font-size: clamp(1.4rem, 3vw, 2.1rem);
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 9px;
+}
+
+.preview-grid div {
+  display: grid;
+  gap: 9px;
+  min-height: 92px;
+  padding: 13px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 13px;
+  background: rgba(255,255,255,.045);
+}
+
+.preview-grid strong {
+  color: var(--secondary);
+  font-size: 0.75rem;
+}
+
+.preview-grid span {
+  color: var(--muted);
+  font-size: 0.75rem;
+  line-height: 1.25;
+}
+
+.preview-progress {
+  height: 7px;
+  margin: 25px 0 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+}
+
+.preview-progress span {
+  display: block;
+  width: 72%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.preview-caption {
+  color: var(--muted);
+  font-size: 0.74rem;
+}
+
 .tag {
   display: inline-block;
   margin-top: 18px;
@@ -983,7 +1146,8 @@ footer {
   .hero-grid,
   .about-grid,
   .availability-grid,
-  .contact-box {
+  .contact-box,
+  .hackathon-card {
     grid-template-columns: 1fr;
   }
 
@@ -1063,6 +1227,15 @@ footer {
   }
 
   .profile-overlay {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hackathon-preview {
+    transform: none;
+  }
+
+  .hackathon-copy .actions {
     align-items: flex-start;
     flex-direction: column;
   }

@@ -4,6 +4,7 @@ const navItems = [
   { label: 'About', href: '#about' },
   { label: 'Skills', href: '#skills' },
   { label: 'Journey', href: '#journey' },
+  { label: 'Hackathon', href: '#hackathon' },
   { label: 'Work', href: '#work' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -47,6 +48,14 @@ const highlights = [
     text: 'Explored statistical and mathematical ideas that support data analysis, visualization, and introductory predictive modeling.',
   },
 ];
+
+const hackathonProject = {
+  title: 'CodePilot',
+  subtitle: 'IBM Hackathon Project',
+  description: 'An AI-powered developer onboarding prototype that helps teams understand an unfamiliar codebase faster through project analysis, code insights, issue discovery, testing guidance, and a prioritized action plan.',
+  stack: ['React', 'JavaScript', 'AI workflow', 'Vercel'],
+  liveDemo: 'https://code-pilot-wheat-beta.vercel.app/',
+};
 
 const certificateGallery = [
   {
@@ -362,6 +371,52 @@ function App() {
                   <p>{item.text}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="hackathon" className="hackathon-section">
+          <div className="container">
+            <div className="hackathon-card" data-reveal>
+              <div className="hackathon-copy">
+                <span className="eyebrow">Built during IBM Hackathon</span>
+                <h2>{hackathonProject.title}</h2>
+                <p className="hackathon-subtitle">{hackathonProject.subtitle}</p>
+                <p>{hackathonProject.description}</p>
+
+                <div className="hackathon-stack" aria-label="Technologies used">
+                  {hackathonProject.stack.map((technology) => (
+                    <span key={technology}>{technology}</span>
+                  ))}
+                </div>
+
+                <div className="actions">
+                  <a href={hackathonProject.liveDemo} className="primary-btn" target="_blank" rel="noreferrer noopener">
+                    Open live prototype ↗
+                  </a>
+                  <span className="hackathon-note">Source code available on request</span>
+                </div>
+              </div>
+
+              <div className="hackathon-preview" aria-label="CodePilot feature preview">
+                <div className="preview-topbar">
+                  <span className="preview-dot" />
+                  <span className="preview-dot" />
+                  <span className="preview-dot" />
+                  <span>CodePilot / prototype</span>
+                </div>
+                <div className="preview-heading">
+                  <small>PROJECT UNDERSTANDING</small>
+                  <strong>Understand any codebase faster.</strong>
+                </div>
+                <div className="preview-grid">
+                  <div><strong>01</strong><span>Scan repository</span></div>
+                  <div><strong>02</strong><span>Find issues</span></div>
+                  <div><strong>03</strong><span>Plan next steps</span></div>
+                </div>
+                <div className="preview-progress"><span /></div>
+                <small className="preview-caption">A guided developer dashboard for faster onboarding.</small>
+              </div>
             </div>
           </div>
         </section>
