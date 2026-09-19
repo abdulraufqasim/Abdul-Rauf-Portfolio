@@ -209,7 +209,7 @@ function App() {
 
                   <div className="profile-panel">
                     <div className="avatar" aria-label="Abdul Rauf profile photo">
-                                          <img src="/images/abdul-profile.png" alt="Abdul Rauf Qasim" />
+                                          <img src="/images/rauf.png" alt="Abdul Rauf Qasim" />
                     </div>
                     <div className="profile-details">
                       <h3>Abdul Rauf</h3>
