@@ -470,7 +470,7 @@ function App() {
               </div>
 
               <div className="profile-frame">
-                <img src="/images/1789583708436-3ys2p3me.png" alt="GitHub preview" />
+                <img src="/images/github-profile.png" alt="GitHub profile preview" />
                 <div className="profile-overlay">
                   <span>GitHub profile</span>
                   <a href="https://github.com/abdulraufqasim" target="_blank" rel="noreferrer noopener">Open GitHub ↗</a>
