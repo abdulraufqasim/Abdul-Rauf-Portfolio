@@ -761,6 +761,11 @@ section {
   font-size: 1.3rem;
 }
 
+.hackathon-projects {
+  display: grid;
+  gap: 24px;
+}
+
 .hackathon-card {
   display: grid;
   grid-template-columns: 1fr 0.92fr;

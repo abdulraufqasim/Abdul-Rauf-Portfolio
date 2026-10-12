@@ -49,13 +49,38 @@ const highlights = [
   },
 ];
 
-const hackathonProject = {
-  title: 'CodePilot',
-  subtitle: 'IBM Hackathon Project',
-  description: 'An AI-powered developer onboarding prototype that helps teams understand an unfamiliar codebase faster through project analysis, code insights, issue discovery, testing guidance, and a prioritized action plan.',
-  stack: ['React', 'JavaScript', 'AI workflow', 'Vercel'],
-  liveDemo: 'https://code-pilot-wheat-beta.vercel.app/',
-};
+const hackathonProjects = [
+  {
+    title: 'CodePilot',
+    subtitle: 'IBM Hackathon Project',
+    eyebrow: 'Built during IBM Hackathon',
+    description: 'An AI-powered developer onboarding prototype that helps teams understand an unfamiliar codebase faster through project analysis, code insights, issue discovery, testing guidance, and a prioritized action plan.',
+    stack: ['React', 'JavaScript', 'AI workflow', 'Vercel'],
+    liveDemo: 'https://code-pilot-wheat-beta.vercel.app/',
+    preview: {
+      label: 'CodePilot / prototype',
+      eyebrow: 'PROJECT UNDERSTANDING',
+      heading: 'Understand any codebase faster.',
+      steps: ['Scan repository', 'Find issues', 'Plan next steps'],
+      caption: 'A guided developer dashboard for faster onboarding.',
+    },
+  },
+  {
+    title: 'Driftwatch',
+    subtitle: 'Hackathon Project',
+    eyebrow: 'Repository architecture guardian',
+    description: 'An early-stage prototype for exploring a repository’s architecture, dependencies, and potential drift signals. The live experience presents a GitHub connection and public repository URL workflow.',
+    stack: ['GitHub', 'Repository analysis', 'Vercel'],
+    liveDemo: 'https://driftwatch-olive.vercel.app/',
+    preview: {
+      label: 'Driftwatch / prototype',
+      eyebrow: 'ARCHITECTURE GUARDIAN',
+      heading: 'See how your repository fits together.',
+      steps: ['Connect repository', 'Explore architecture', 'Spot drift signals'],
+      caption: 'A prototype concept for understanding repository structure.',
+    },
+  },
+];
 
 const certificateGallery = [
   {
@@ -377,46 +402,50 @@ function App() {
 
         <section id="hackathon" className="hackathon-section">
           <div className="container">
-            <div className="hackathon-card" data-reveal>
-              <div className="hackathon-copy">
-                <span className="eyebrow">Built during IBM Hackathon</span>
-                <h2>{hackathonProject.title}</h2>
-                <p className="hackathon-subtitle">{hackathonProject.subtitle}</p>
-                <p>{hackathonProject.description}</p>
+            <div className="hackathon-projects">
+              {hackathonProjects.map((project) => (
+                <article className="hackathon-card" data-reveal key={project.title}>
+                  <div className="hackathon-copy">
+                    <span className="eyebrow">{project.eyebrow}</span>
+                    <h2>{project.title}</h2>
+                    <p className="hackathon-subtitle">{project.subtitle}</p>
+                    <p>{project.description}</p>
 
-                <div className="hackathon-stack" aria-label="Technologies used">
-                  {hackathonProject.stack.map((technology) => (
-                    <span key={technology}>{technology}</span>
-                  ))}
-                </div>
+                    <div className="hackathon-stack" aria-label="Technologies used">
+                      {project.stack.map((technology) => (
+                        <span key={technology}>{technology}</span>
+                      ))}
+                    </div>
 
-                <div className="actions">
-                  <a href={hackathonProject.liveDemo} className="primary-btn" target="_blank" rel="noreferrer noopener">
-                    Open live prototype ↗
-                  </a>
-                  <span className="hackathon-note">Source code available on request</span>
-                </div>
-              </div>
+                    <div className="actions">
+                      <a href={project.liveDemo} className="primary-btn" target="_blank" rel="noreferrer noopener">
+                        Open live prototype ↗
+                      </a>
+                      <span className="hackathon-note">Source code available on request</span>
+                    </div>
+                  </div>
 
-              <div className="hackathon-preview" aria-label="CodePilot feature preview">
-                <div className="preview-topbar">
-                  <span className="preview-dot" />
-                  <span className="preview-dot" />
-                  <span className="preview-dot" />
-                  <span>CodePilot / prototype</span>
-                </div>
-                <div className="preview-heading">
-                  <small>PROJECT UNDERSTANDING</small>
-                  <strong>Understand any codebase faster.</strong>
-                </div>
-                <div className="preview-grid">
-                  <div><strong>01</strong><span>Scan repository</span></div>
-                  <div><strong>02</strong><span>Find issues</span></div>
-                  <div><strong>03</strong><span>Plan next steps</span></div>
-                </div>
-                <div className="preview-progress"><span /></div>
-                <small className="preview-caption">A guided developer dashboard for faster onboarding.</small>
-              </div>
+                  <div className="hackathon-preview" aria-label={`${project.title} feature preview`}>
+                    <div className="preview-topbar">
+                      <span className="preview-dot" />
+                      <span className="preview-dot" />
+                      <span className="preview-dot" />
+                      <span>{project.preview.label}</span>
+                    </div>
+                    <div className="preview-heading">
+                      <small>{project.preview.eyebrow}</small>
+                      <strong>{project.preview.heading}</strong>
+                    </div>
+                    <div className="preview-grid">
+                      {project.preview.steps.map((step, index) => (
+                        <div key={step}><strong>0{index + 1}</strong><span>{step}</span></div>
+                      ))}
+                    </div>
+                    <div className="preview-progress"><span /></div>
+                    <small className="preview-caption">{project.preview.caption}</small>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
